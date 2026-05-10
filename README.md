@@ -68,12 +68,5 @@
 
 ---
 
-**Golden Hands** — Рекламные конструкции под ключ в Вильнюсе с 2012 года.
+*Разработано Ruslan Bilohash*
 
-**Адрес:** Dangeručio g. 7, Vilnius, Lithuania  
-**Телефоны:** +370 606 08502 • +370 641 09990  
-**Email:** email@golden-hands.lt
-
----
-
-*© 2026 Golden Hands Lithuania. Все права защищены.*
