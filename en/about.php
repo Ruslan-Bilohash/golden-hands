@@ -5,7 +5,8 @@ $pageDescription = 'Learn more about Golden Hands — a leading full-cycle manuf
 $pageKeywords = 'about Golden Hands Vilnius, advertising company Lithuania, outdoor advertising production Vilnius, signs manufacturer, light boxes, 3D letters, exhibition stands';
 
 include 'header.php';
-include 'consultant-widget.php';
+include '../popup.php';
+include '../consultant-widget.php';
 ?>
 <div style="padding-top:80px; background:#05070f;">
     <!-- Hero Section -->
