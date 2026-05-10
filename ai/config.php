@@ -2,9 +2,9 @@
 // config.php — Основні налаштування та безпека
 
 // API ключі
-define('XAI_API_KEY', 'xai-45oLmLJqisLdLNBJTZjZZUVWYYcu2UmguMgNb8FIg9GskMp7b6sG07F7o6xFF67bN96XC8PFXeQCE01Z');
-define('TELEGRAM_TOKEN', '8344613173:AAEY7mnVx5Z4H8LovTmm-uj5s81-PS5--JA');
-define('YOUR_TELEGRAM_CHAT_ID', 5351698956);
+define('XAI_API_KEY', '-');
+define('TELEGRAM_TOKEN', '');
+define('YOUR_TELEGRAM_CHAT_ID', );
 define('GROK_MODEL', 'grok-4.20-0309-non-reasoning');
 
 // Папки
