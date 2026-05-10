@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 // === reCAPTCHA Protection ===
-$recaptcha_secret = '6LdpY-AsAAAAANw1Q0QrPAPyhqQwhJwkF8CwIiaB';
+$recaptcha_secret = '';
 $recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
 
 if (empty($recaptcha_response)) {
@@ -70,7 +70,7 @@ try {
     $mail->Host       = 'smtp.hostinger.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'email@golden-hands.lt';
-    $mail->Password   = 'Odifar78@';
+    $mail->Password   = '@';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
     $mail->CharSet    = 'UTF-8';
