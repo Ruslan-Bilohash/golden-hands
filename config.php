@@ -1,19 +1,33 @@
 <?php
-// ====================== CONFIG ======================
-define('SITE_URL', 'https://golden-hands.lt');
-define('SITE_NAME', 'Golden Hands');
-define('VERSION', '2026.05');
+// config.php — Основні налаштування та безпека
 
-// Безопасная функция перевода
-function __t($key, $default = '') {
-    global $translations;
-    return isset($translations[$key]) 
-        ? htmlspecialchars($translations[$key], ENT_QUOTES | ENT_HTML5, 'UTF-8') 
-        : htmlspecialchars($default, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-}
+// API ключі
+define('XAI_API_KEY', 'xai-45oLmLJqisLdLNBJTZjZZUVWYYcu2UmguMgNb8FIg9GskMp7b6sG07F7o6xFF67bN96XC8PFXeQCE01Z');
+define('TELEGRAM_TOKEN', '8344613173:AAEY7mnVx5Z4H8LovTmm-uj5s81-PS5--JA');
+define('YOUR_TELEGRAM_CHAT_ID', 5351698956);
+define('GROK_MODEL', 'grok-4.20-0309-non-reasoning');
 
-// Добавление языка к ссылкам
-function lang_url($page = 'index.php') {
-    global $lang;
-    return $lang === 'ru' ? $page : $page . '?lang=' . $lang;
+// Папки
+define('CONVERSATIONS_DIR', __DIR__ . '/conversations');
+define('LOG_DIR', __DIR__ . '/log');
+
+// Створення папок
+if (!is_dir(CONVERSATIONS_DIR)) mkdir(CONVERSATIONS_DIR, 0700, true);
+if (!is_dir(LOG_DIR)) mkdir(LOG_DIR, 0700, true);
+
+
+// ЗМІНИ ЦЕЙ ПАРОЛЬ НА СВОЙ СИЛЬНИЙ (використовуй 16+ символів, цифри, символи)
+define('ADMIN_PASSWORD', '12345');
+
+// CSRF secret
+define('CSRF_SECRET', 'marit_csrf_very_long_secret_string_2026_change_this');
+// Безпека
+header('X-Frame-Options: DENY');
+header('X-XSS-Protection: 1; mode=block');
+header('X-Content-Type-Options: nosniff');
+header('Referrer-Policy: strict-origin-when-cross-origin');
+
+if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
+    http_response_code(403);
+    exit('Direct access forbidden.');
 }
