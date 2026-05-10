@@ -2,7 +2,10 @@
 
 ![Golden Hands Banner](https://github.com/Ruslan-Bilohash/golden-hands/blob/main/images/servise_main.jpg?raw=true)
 
-**Официальный сайт компании Golden Hands** — производство рекламных конструкций любой сложности в Вильнюсе и по всей Европе.
+**Официальный сайт компании Golden Hands** — производство рекламных конструкций любой сложности в Вильнюсе и по всей Европе. 
+Демо сайта:
+https://golden-hands.lt
+(Основная литовская версия)
 
 ---
 
