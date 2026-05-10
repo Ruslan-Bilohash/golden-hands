@@ -7,6 +7,8 @@ $pageKeywords = 'gallery, advertising structures Vilnius, signs portfolio, light
 $canonical = 'https://golden-hands.lt/en/gallery';
 
 include 'header.php';
+include '../popup.php';
+include '../consultant-widget.php';
 ?>
 
 <div style="padding-top:90px; background:#05070f;">
