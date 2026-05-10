@@ -1,0 +1,29 @@
+# ====================== Golden Hands - Clean URLs + Sitemap ======================
+RewriteEngine On
+RewriteBase /
+
+# === Главная страница ===
+RewriteRule ^index\.php$ / [L,R=301]
+
+# === Редирект с .php на чистый URL ===
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)\.php$ $1 [L,R=301]
+
+# === ИСКЛЮЧЕНИЯ (очень важно!) ===
+RewriteRule ^(sitemap\.xml|robots\.txt|burger\.js|js\.js|images/|assets/) - [L]
+
+# === Основное правило для страниц ===
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+# Полезные настройки
+Options -Indexes
+DirectoryIndex index.php
+
+# Защита .htaccess
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>
