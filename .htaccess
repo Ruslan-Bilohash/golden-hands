@@ -1,0 +1,63 @@
+# ====================== Golden Hands - Clean URLs + Sitemap + Cache ======================
+RewriteEngine On
+RewriteBase /
+
+# === Главная страница ===
+RewriteRule ^index\.php$ / [L,R=301]
+
+# === ЯВНЫЕ ИСКЛЮЧЕНИЯ ===
+RewriteRule ^sitemap\.xml$ - [L]
+RewriteRule ^robots\.txt$ - [L]
+RewriteRule ^images/ - [L]
+RewriteRule ^assets/ - [L]
+RewriteRule ^fonts/ - [L]
+RewriteRule ^(burger\.js|js\.js|send\.php|callback\.php|recaptcha\.php)$ - [L]
+
+# === Редирект с .php на чистый URL ===
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)\.php$ $1 [L,R=301]
+
+# === Основное правило для страниц ===
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+# ====================== CACHE OPTIMIZATION (PageSpeed) ======================
+<IfModule mod_headers.c>
+    # 1 ГОД — для статических файлов (шрифты, изображения, CSS, JS)
+    <FilesMatch "\.(woff2?|eot|ttf|otf|svg|jpg|jpeg|png|webp|gif|ico|css|js)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # 1 МЕСЯЦ — для документов
+    <FilesMatch "\.(pdf|doc|docx|xml|txt)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # HTML и PHP — не кешируем (чтобы изменения сразу отображались)
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# ====================== СЖАТИЕ (Gzip) ======================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json
+</IfModule>
+
+# ====================== ПОЛЕЗНЫЕ НАСТРОЙКИ ======================
+Options -Indexes
+DirectoryIndex index.php
+
+# ====================== ЗАЩИТА ======================
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Защита от доступа к папкам с конфигами
+<FilesMatch "^(config|vendor|PHPMailer|subscribers|clients)\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
