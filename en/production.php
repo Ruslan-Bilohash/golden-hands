@@ -7,7 +7,8 @@ $pageKeywords = 'advertising structures manufacturing Vilnius, CNC laser cutting
 $canonical = 'https://golden-hands.lt/en/production';
 
 include 'header.php';
-include 'consultant-widget.php';
+include '../popup.php';
+include '../consultant-widget.php';
 ?>
 
 <div style="padding-top:90px; background:#05070f;">
