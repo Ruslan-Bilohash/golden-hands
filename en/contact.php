@@ -7,8 +7,8 @@ $pageKeywords = 'contact Golden Hands Vilnius, advertising structures Vilnius, s
 $canonical = 'https://golden-hands.lt/en/contact';
 
 include 'header.php';
-include 'popup.php';
-include '../ru/consultant-widget.php';
+include '../popup.php';
+include '../consultant-widget.php';
 ?>
 
 <?php
